@@ -211,7 +211,7 @@ Integrates theme state with physics and collision logic
 
 Combines DOM-based UI with Canvas-based game systems
 
-Demonstrates advanced JavaScript logic beyond simple UI toggling
+Demonstrates advanced JavaScript logic beyond simple UI toggling```
 
-👨‍💻 Developer
+# 👨‍💻 Developer
 Abdeali Makda
