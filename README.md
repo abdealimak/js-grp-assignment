@@ -213,7 +213,5 @@ Combines DOM-based UI with Canvas-based game systems
 
 Demonstrates advanced JavaScript logic beyond simple UI toggling
 
-👨‍💻 Author
+👨‍💻 Developer
 Abdeali Makda
-JavaScript Group Assignment
-Theme Switching as Gameplay Mechanic
