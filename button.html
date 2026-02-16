@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hidden Trigger</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(120deg, #f6f9ff, #dfe9f3);
+    transition: background 0.6s ease;
+    overflow: hidden;
+}
+
+body.dark {
+    background: linear-gradient(120deg, #000000, #203a43, #2c5364);
+}
+
+.container {
+    text-align: center;
+}
+
+h1 {
+    margin-bottom: 40px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    transition: color 0.4s;
+}
+
+body.dark h1 {
+    color: #ffffff;
+}
+
+.info {
+    margin-top: 30px;
+    font-size: 14px;
+    letter-spacing: 1px;
+    opacity: 0.7;
+    transition: color 0.4s;
+}
+
+body.dark .info {
+    color: #ddd;
+}
+
+.switch {
+  font-size: 17px;
+  position: relative;
+  display: inline-block;
+  width: 4em;
+  height: 2.2em;
+  border-radius: 30px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.15);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  inset: 0;
+  background-color: #000000;
+  transition: 0.4s;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.2em;
+  width: 1.2em;
+  border-radius: 20px;
+  left: 0.5em;
+  bottom: 0.5em;
+  transition: 0.4s cubic-bezier(0.81, -0.04, 0.38, 1.5);
+  box-shadow: inset 8px -4px 0px 0px #fff;
+}
+
+.switch input:checked + .slider {
+  background-color: #00a6ff;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(1.8em);
+  box-shadow: inset 15px -4px 0px 15px #ffcf48;
+}
+
+.star {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  transition: 0.4s;
+}
+
+.star_1 { left: 2.5em; top: 0.5em; }
+.star_2 { left: 2.2em; top: 1.2em; }
+.star_3 { left: 3em; top: 0.9em; }
+
+.switch input:checked ~ .slider .star {
+  opacity: 0;
+}
+
+.cloud {
+  width: 3.5em;
+  position: absolute;
+  bottom: -1.4em;
+  left: -1.1em;
+  opacity: 0;
+  transition: 0.4s;
+}
+
+.switch input:checked ~ .slider .cloud {
+  opacity: 1;
+}
+
+.fade {
+    animation: fadeOut 0.8s forwards;
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+        transform: scale(1.1);
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Keep Toggling To Open The World's Hardest Game 🚀</h1>
+
+    <label class="switch">
+        <input type="checkbox" id="themeToggle">
+        <span class="slider">
+            <span class="star star_1"></span>
+            <span class="star star_2"></span>
+            <span class="star star_3"></span>
+            <svg viewBox="0 0 144 55" class="cloud">
+                <path fill="#fff" d="M60 10c-10 0-18 8-18 18H20C9 28 0 37 0 48s9 20 20 20h104c11 0 20-9 20-20s-9-20-20-20h-3c0-8-7-14-15-14-3 0-6 1-8 3-3-5-8-7-13-7-4 0-7 1-10 4-2-2-6-4-12-4z"/>
+            </svg>
+        </span>
+    </label>
+
+    <div class="info" id="infoText"></div>
+</div>
+
+<script>
+const toggle = document.getElementById("themeToggle");
+const body = document.body;
+const infoText = document.getElementById("infoText");
+
+let remaining = 20;
+infoText.textContent = `Click ${remaining} more times`;
+
+toggle.addEventListener("change", () => {
+    body.classList.toggle("dark");
+
+    remaining--;
+
+    if (remaining > 0) {
+        infoText.textContent = `Click ${remaining} more times`;
+    } else {
+        infoText.textContent = "Entering...";
+        document.querySelector(".container").classList.add("fade");
+
+        setTimeout(() => {
+            window.location.href = "game.html";
+        }, 800);
+    }
+});
+</script>
+
+</body>
+</html>
