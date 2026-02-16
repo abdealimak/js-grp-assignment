@@ -13,11 +13,11 @@ Inside the game, switching between Light and Dark themes dynamically changes the
 
 ## 📁 Project Structure
 
-js-grp-assignment/
-│
-├── button.html → Entry file (must be executed first)
-├── game.html → Canvas-based platformer game
-├── music.mp3 → Background music
+js-grp-assignment/<br>
+│<br>
+├── button.html → Entry file (must be executed first)<br>
+├── game.html → Canvas-based platformer game<br>
+├── music.mp3 → Background music<br>
 └── README.md
 
 
